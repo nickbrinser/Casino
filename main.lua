@@ -258,7 +258,7 @@ function Hit()
         transition.to( card4, { time=200, delay=200, alpha=1.0 } )
         score = GetCardValue(t[1]) + GetCardValue(t[2]) + GetCardValue(t[3])  + GetCardValue(t[4])
   	    DisplayScore(score)
-  	    if (score >= 33) then
+  	    if (score >= 21) then
 	       Freeze()
         end
  	    cardCount = cardCount + 1
