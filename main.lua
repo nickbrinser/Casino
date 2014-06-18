@@ -3,7 +3,6 @@ display.setStatusBar(display.HiddenStatusBar);
 local deck
 local dealerCard1
 local dealerCard2
-local dealerCard3
 local dealerCard4
 local dealerCard5
 local card1 
@@ -295,7 +294,7 @@ function Freeze()
   
     for i = 1, 2 do
         if dealerScore < score and score <= 21 then
-			  if dealerCount == 3  then
+			  if (dealerCount == 2) and dealerScore <= 17 then
 				 -- Hit Dealer
 				 dealerCard4    = display.newImage(GetCardImage(t[10]))
 				 dealerCard4.x  = deck.x
