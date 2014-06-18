@@ -60,11 +60,6 @@ function LoadBackground()
 	background.x  = display.contentWidth / 2
 	background.y  = display.contentHeight / 2
 
-	-- Logo
-	logo    = display.newImage( "Howse33Logo.png", true )
-	logo.x  = display.contentWidth / 2
-	logo.y  = display.contentHeight - 450
-
 end
 
 function LoadIntro()
@@ -187,13 +182,7 @@ function DealCards()
     transition.to( dealerCard2, { time=200, delay=200, alpha=1.0 } )
 
 
-    dealerCard3    = display.newImage(GetCardImage(t[9]))
-    dealerCard3.x  = deck.x
-	dealerCard3.y  = deck.y
-	dealerCard3.xScale = .8
-	dealerCard3.yScale = .8
-   	transition.to( dealerCard3, { time=200, alpha=0, x=(dealerCard2.x + dealerCard3.contentWidth + 2), y=(display.contentHeight - dealerY) } )
-    transition.to( dealerCard3, { time=200, delay=200, alpha=1.0 } )
+    
 
 	card1          = display.newImage(GetCardImage(t[1]))
     card1.x        = deck.x
@@ -211,15 +200,9 @@ function DealCards()
    	transition.to( card2, { time=200, alpha=0, x=(display.contentWidth  / 2), y=(display.contentHeight - playerY) } )
     transition.to( card2, { time=200, delay=200, alpha=1.0 } )
 
-	card3          = display.newImage(GetCardImage(t[3]))
-    card3.x        = deck.x
-	card3.y        = deck.y
-	card3.xScale   = .8
-	card3.yScale   = .8
-   	transition.to( card3, { time=200, alpha=0, x=(card2.x + card3.contentWidth + 2), y=(display.contentHeight - playerY) } )
-    transition.to( card3, { time=200, delay=200, alpha=1.0 } )
+	
   
-    score = GetCardValue(t[1]) + GetCardValue(t[2]) + GetCardValue(t[3]) 
+    score = GetCardValue(t[1]) + GetCardValue(t[2]) 
    
     CheckBank()
     DisplayScore(score)
@@ -227,8 +210,8 @@ function DealCards()
     DisplayBank(bank)	
     DisplayBet(bet)
 	
-    cardCount   = 3
-    dealerCount = 3
+    cardCount   = 2
+    dealerCount = 2
     endGame = false
 
 end
@@ -532,10 +515,10 @@ function ClearCards()
 	
     dealerCard1:removeSelf()
     dealerCard2:removeSelf()
-    dealerCard3:removeSelf()
+    
     card1:removeSelf()
     card2:removeSelf()
-    card3:removeSelf()
+    
 	if (winnerStatus ~= nil) then
         winnerStatus:removeSelf()
 	end 
@@ -684,37 +667,37 @@ function GetCardValue(card)
    local cardValue = 0
 
 	if card == 0      then 
-		cardValue = 11
+		cardValue = 10
 	elseif card == 13 then 
-		cardValue = 11
+		cardValue = 10
 	elseif card == 26 then 
-		cardValue = 11
+		cardValue = 10
 	elseif card == 39 then 
-		cardValue = 11
+		cardValue = 10
 	elseif card == 1  then 
-		cardValue = 11
+		cardValue = 10
 	elseif card == 14 then 
-		cardValue = 11
+		cardValue = 10
 	elseif card == 27 then 
-		cardValue = 11
+		cardValue = 10
 	elseif card == 40 then 
-		cardValue = 11
+		cardValue = 10
 	elseif card == 2  then 
-		cardValue = 11
+		cardValue = 10
 	elseif card == 15 then 
-		cardValue = 11
+		cardValue = 10
 	elseif card == 28 then 
-		cardValue = 11
+		cardValue = 10
 	elseif card == 41 then 
-		cardValue = 11
+		cardValue = 10
 	elseif card == 3  then 
-		cardValue = 11
+		cardValue = 10
 	elseif card == 16 then 
-		cardValue = 11
+		cardValue = 10
 	elseif card == 29 then 
-		cardValue = 11
+		cardValue = 10
 	elseif card == 42 then
-		cardValue = 11
+		cardValue = 10
 
 	-- Tens
 	elseif card == 4   then 
