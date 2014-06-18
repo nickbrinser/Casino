@@ -311,7 +311,7 @@ function Freeze()
     DisplayDealerScore(dealerScore)
   
     for i = 1, 2 do
-        if dealerScore < score and score <= 33 then
+        if dealerScore < score and score <= 21 then
 			  if dealerCount == 3  then
 				 -- Hit Dealer
 				 dealerCard4    = display.newImage(GetCardImage(t[10]))
@@ -340,7 +340,7 @@ function Freeze()
 		end
 	end 
 	
-	if dealerScore > 33 and score > 33 and scoreFound == false then
+	if dealerScore > 21 and score > 21 and scoreFound == false then
   	   -- Push
 	   bank = bank - bet
 	   DisplayGameStatus("Push")
@@ -348,40 +348,40 @@ function Freeze()
 	   scoreFound = true
 	end
 	
-	if dealerScore <= 33 and score <= 33 and dealerScore == score and scoreFound == false then
+	if dealerScore <= 21 and score <= 21 and dealerScore == score and scoreFound == false then
 	   -- Push
 	   DisplayGameStatus("Push")
 	   scoreFound = true
 	end
 	
-	if dealerScore <= 33 and score <= 33 and dealerScore == score and scoreFound == false then
+	if dealerScore <= 21 and score <= 21 and dealerScore == score and scoreFound == false then
 	   -- Push
 	   DisplayGameStatus("Push")
 	   scoreFound = true
 	end
 
-	if dealerScore <= 33 and score <= 33 and dealerScore >= score and scoreFound == false then
+	if dealerScore <= 21 and score <= 21 and dealerScore >= score and scoreFound == false then
 	   -- Dealer Wins
 	   bank = bank - bet
 	   DisplayGameStatus("House")
 	   scoreFound = true
 	end
 	
-	if dealerScore <= 33 and score <= 33 and dealerScore <= score and scoreFound == false then
+	if dealerScore <= 21 and score <= 21 and dealerScore <= score and scoreFound == false then
 	   -- Player Wins
 	   bank = bank + bet
 	   DisplayGameStatus("Player")
 	   scoreFound = true
 	end
 	
-	if dealerScore <= 33 and score > 33 and scoreFound == false then
+	if dealerScore <= 21 and score > 21 and scoreFound == false then
 	   -- Dealer Wins
 	   bank = bank - bet
 	   DisplayGameStatus("House")
 	   scoreFound = true
 	end
 
-	if dealerScore >= 33 and score <= 33 and scoreFound == false then
+	if dealerScore >= 21 and score <= 21 and scoreFound == false then
 	   -- Dealer Wins
 	   bank = bank + bet
 	   DisplayGameStatus("Player")
@@ -395,7 +395,7 @@ function Freeze()
        freezing = false
 	   DisplayBank(bank)
 	   -- Show alert with five buttons
- 	  local alert = native.showAlert( "House 33", "$0 Left In Bank.  Restart Game?", 
+ 	  local alert = native.showAlert( "Blackjack", "$0 Left In Bank.  Restart Game?", 
                                     { "Restart" }, onComplete )   
 	end 
 
