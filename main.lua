@@ -666,14 +666,22 @@ function GetCardValue(card)
 
    local cardValue = 0
 
-	if card == 0      then 
+	if card == 0 and score > 21 then 
+		cardValue = 1
+	elseif card == 0 and score < 21 then
 		cardValue = 11
-	elseif card == 13 then 
+	elseif card == 13 and score > 21 then 
+		cardValue = 1
+	elseif card == 13 and score < 21 then
 		cardValue = 11
-	elseif card == 26 then 
+	elseif card == 26 and score > 21 then 
+		cardValue = 1
+	elseif card == 26 and score < 21 then
 		cardValue = 11
-	elseif card == 39 then 
+	elseif card == 39 and score < 21 then 
 		cardValue = 11
+	elseif card = 39 and score > 21 then
+		cardValue = 1
 	elseif card == 1  then 
 		cardValue = 10
 	elseif card == 14 then 
