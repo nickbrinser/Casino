@@ -290,12 +290,12 @@ function Freeze()
   	dealerCard2.xScale = .8
 	dealerCard2.yScale = .8
 
-    dealerScore = GetCardValue(t[7]) + GetCardValue(t[8]) + GetCardValue(t[9])
+    dealerScore = GetCardValue(t[7]) + GetCardValue(t[8])
     DisplayDealerScore(dealerScore)
   
     for i = 1, 2 do
         if dealerScore < score and score <= 21 then
-			  if dealerCount == 3  then
+			  if (dealerCount == 2) and (dealerScore <= 17)  then
 				 -- Hit Dealer
 				 dealerCard4    = display.newImage(GetCardImage(t[10]))
 				 dealerCard4.x  = deck.x
