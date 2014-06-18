@@ -667,13 +667,13 @@ function GetCardValue(card)
    local cardValue = 0
 
 	if card == 0      then 
-		cardValue = 10
+		cardValue = 11
 	elseif card == 13 then 
-		cardValue = 10
+		cardValue = 11
 	elseif card == 26 then 
-		cardValue = 10
+		cardValue = 11
 	elseif card == 39 then 
-		cardValue = 10
+		cardValue = 11
 	elseif card == 1  then 
 		cardValue = 10
 	elseif card == 14 then 
