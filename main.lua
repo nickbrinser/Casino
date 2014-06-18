@@ -666,21 +666,21 @@ function GetCardValue(card)
 
    local cardValue = 0
 
-	if card == 0 and score > 21 then 
+	if card == 0 and (GetCardValue(t[1])+11) > 21 then --sincerely hope this will work
 		cardValue = 1
-	elseif card == 0 and score < 21 then
+	elseif card == 0 and (GetCardValue(t[1])+11) <= 21 then
 		cardValue = 11
-	elseif card == 13 and score > 21 then 
+	elseif card == 13 and (GetCardValue(t[1])+11) > 21 then 
 		cardValue = 1
-	elseif card == 13 and score < 21 then
+	elseif card == 13 and (GetCardValue(t[1])+11) <= 21 then
 		cardValue = 11
-	elseif card == 26 and score > 21 then 
+	elseif card == 26 and (GetCardValue(t[1])+11) > 21 then 
 		cardValue = 1
-	elseif card == 26 and score < 21 then
+	elseif card == 26 and (GetCardValue(t[1])+11) <= 21 then
 		cardValue = 11
-	elseif card == 39 and score < 21 then 
+	elseif card == 39 and (GetCardValue(t[1])+11) <= 21 then 
 		cardValue = 11
-	elseif card == 39 and score > 21 then
+	elseif card == 39 and (GetCardValue(t[1])+11) > 21 then
 		cardValue = 1
 	elseif card == 1  then 
 		cardValue = 10
