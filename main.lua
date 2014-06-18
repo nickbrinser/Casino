@@ -410,7 +410,7 @@ function DisplayRules()
 	local rule2 = "All players start with $1000 in the Bank.\nBets are placed before each hand and\nplayers can bet $5, $10, $25, $50, or\n$100 on each hand.\n\n"
 	local rule3 = "Each hand begins with 3 cards. A player\nhas the option to get cards using\nthe Hit button and a player can hold using\nthe Freeze button.\n\n"
 	local rule4 = "A maximum of 5 cards are allowed for each\nplayer.\n\n"
-	local rule5 = "The goal of the game is to get a card total\nof 33. The player that is closest to 33\n without going over wins.\n\n"
+	local rule5 = "The goal of the game is to get a card total\nof 21. The player that is closest to 21\n without going over wins.\n\n"
 	local rule6 = "The House has the option to Hit after all\nplayers Freeze."
 	
 	ruleText    = display.newImage("RuleText.png")
