@@ -293,10 +293,14 @@ function Freeze()
     DisplayDealerScore(dealerScore)
   
     for i = 1, 2 do
+<<<<<<< HEAD
         if dealerScore < score and score <= 21 then
 <<<<<< HEAD
 			  if (dealerCount == 2) and dealerScore <= 17 then
 =======
+=======
+        if (dealerScore < score) and (score <= 21) then
+>>>>>>> 648400144a072e3185ac93d91cdf22e8ca0f01bc
 			  if (dealerCount == 2) and (dealerScore <= 17)  then
 >>>>>>> 4d42f29ef7378ecd3018a405f11a795cfae6b36e
 				 -- Hit Dealer
