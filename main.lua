@@ -680,7 +680,7 @@ function GetCardValue(card)
 		cardValue = 11
 	elseif card == 39 and score < 21 then 
 		cardValue = 11
-	elseif card = 39 and score > 21 then
+	elseif card == 39 and score > 21 then
 		cardValue = 1
 	elseif card == 1  then 
 		cardValue = 10
