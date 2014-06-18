@@ -294,7 +294,7 @@ function Freeze()
     DisplayDealerScore(dealerScore)
   
     for i = 1, 2 do
-        if dealerScore < score and score <= 21 then
+        if (dealerScore < score) and (score <= 21) then
 			  if (dealerCount == 2) and (dealerScore <= 17)  then
 				 -- Hit Dealer
 				 dealerCard4    = display.newImage(GetCardImage(t[10]))
