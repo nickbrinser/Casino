@@ -316,7 +316,7 @@ function Freeze()
 				 dealerCard3.y  = deck.y
  				 dealerCard3.xScale = .8
 				 dealerCard3.yScale = .8
-				 transition.to( dealerCard3, { time=250, alpha=0, x=(dealerCard2.x - dealerCard3.contentWidth - 2), y=(display.contentHeight -  dealerY) } )
+				 transition.to( dealerCard3, { time=250, alpha=0, x=(dealerCard1.x - dealerCard3.contentWidth - 4), y=(display.contentHeight -  dealerY) } )
 				 transition.to( dealerCard3, { time=200, delay=200, alpha=1.0 } )
 				 dealerScore = GetCardValue(t[7]) + GetCardValue(t[8]) + GetCardValue(t[10])
 				 DisplayDealerScore(dealerScore)
@@ -329,7 +329,7 @@ function Freeze()
 				 dealerCard4.y  = deck.y
 				 dealerCard4.xScale = .8
 				 dealerCard4.yScale = .8
-				 transition.to( dealerCard4, { time=250, alpha=0, x=(dealerCard3.x + dealerCard.contentWidth + 2), y=(display.contentHeight -  dealerY) } )
+				 transition.to( dealerCard4, { time=250, alpha=0, x=(dealerCard2.x + dealerCard4.contentWidth + 2), y=(display.contentHeight -  dealerY) } )
 				 transition.to( dealerCard4, { time=200, delay=200, alpha=1.0 } )
 				dealerScore = GetCardValue(t[7]) + GetCardValue(t[8]) + GetCardValue(t[10]) + GetCardValue(t[11]) 
 				 DisplayDealerScore(dealerScore)
