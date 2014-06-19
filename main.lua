@@ -3,11 +3,12 @@ display.setStatusBar(display.HiddenStatusBar);
 local deck
 local dealerCard1
 local dealerCard2
+local dealerCard3
 local dealerCard4
-local dealerCard5
+--local dealerCard5
 local card1 
 local card2 
-local card3 
+--local card3 
 local card4 
 local card5
 local t 
@@ -59,6 +60,8 @@ function LoadBackground()
 	background.x  = display.contentWidth / 2
 	background.y  = display.contentHeight / 2
 
+	
+
 end
 
 function LoadIntro()
@@ -72,7 +75,7 @@ function LoadIntro()
 	-- Text Fade In Transition
           transition.to( house, { time=0, delay=0, alpha=.0 } )
           transition.to( house, { time=500, delay=0, alpha=1.0} )
-	
+
 	playButton    = display.newImage("Play.png")
 	playButton.x  = display.contentWidth / 2 - (playButton.contentWidth / 2)
 	playButton.y  = house.y + 200
@@ -181,7 +184,13 @@ function DealCards()
     transition.to( dealerCard2, { time=200, delay=200, alpha=1.0 } )
 
 
-    
+    --dealerCard3    = display.newImage(GetCardImage(t[9]))
+   -- dealerCard3.x  = deck.x
+	--dealerCard3.y  = deck.y
+	--dealerCard3.xScale = .8
+	--dealerCard3.yScale = .8
+   	--transition.to( dealerCard3, { time=200, alpha=0, x=(dealerCard2.x + dealerCard3.contentWidth + 2), y=(display.contentHeight - dealerY) } )
+   -- transition.to( dealerCard3, { time=200, delay=200, alpha=1.0 } )
 
 	card1          = display.newImage(GetCardImage(t[1]))
     card1.x        = deck.x
@@ -199,18 +208,24 @@ function DealCards()
    	transition.to( card2, { time=200, alpha=0, x=(display.contentWidth  / 2), y=(display.contentHeight - playerY) } )
     transition.to( card2, { time=200, delay=200, alpha=1.0 } )
 
-	
+	--card3          = display.newImage(GetCardImage(t[3]))
+    --card3.x        = deck.x
+	--card3.y        = deck.y
+	--card3.xScale   = .8
+	--card3.yScale   = .8
+   	--transition.to( card3, { time=200, alpha=0, x=(card2.x + card3.contentWidth + 2), y=(display.contentHeight - playerY) } )
+    --transition.to( card3, { time=200, delay=200, alpha=1.0 } )
   
-    score = GetCardValue(t[1]) + GetCardValue(t[2]) 
+    score = GetCardValue(t[1]) + GetCardValue(t[2]) --+ GetCardValue(t[3]) 
    
     CheckBank()
     DisplayScore(score)
     DisplayDealerScore("Dealer")
     DisplayBank(bank)	
     DisplayBet(bet)
-	
-    cardCount   = 2
-    dealerCount = 2
+
+    cardCount   = 3
+    dealerCount = 3
     endGame = false
 
 end
@@ -220,7 +235,7 @@ function Hit()
     local hitCount = 0
 
 	hitting = true
-	
+
     if (cardCount == 5) or (endGame == true) then
 	 hitting = false
      return cardCount
@@ -228,34 +243,34 @@ function Hit()
 
     -- Set First Load Flag
 	firstLoad   = false
-	
+
 	 if cardCount == 3 then
-		card4    = display.newImage(GetCardImage(t[4]))
-        card4.x  = deck.x
-		card4.y  = deck.y
-	    card4.xScale   = .8
-	    card4.yScale   = .8
+		card3    = display.newImage(GetCardImage(t[4]))
+        card3.x  = deck.x
+		card3.y  = deck.y
+	    card3.xScale   = .8
+	    card3.yScale   = .8
 		hitCount = hitCount + 1
-   	    transition.to( card4, { time=250, alpha=0, x=(card1.x - card4.contentWidth - 2), y=(display.contentHeight -  playerY) } )
-        transition.to( card4, { time=200, delay=200, alpha=1.0 } )
+   	    transition.to( card3, { time=250, alpha=0, x=(card1.x - card3.contentWidth - 2), y=(display.contentHeight -  playerY) } )
+        transition.to( card3, { time=200, delay=200, alpha=1.0 } )
         score = GetCardValue(t[1]) + GetCardValue(t[2]) + GetCardValue(t[4])
   	    DisplayScore(score)
-  	    if (score >= 21) then
+  	    if (score >= 21) or (cardCount == 5) then
 	       Freeze()
         end
  	    cardCount = cardCount + 1
     	hitting = false
         return cardCount
 	elseif cardCount == 4 then
-		card5    = display.newImage(GetCardImage(t[5]))
-        card5.x  = deck.x
-		card5.y  = deck.y
-  	    card5.xScale   = .8
-	    card5.yScale   = .8
-   	    transition.to( card5, { time=250, alpha=0, x=(card3.x + card5.contentWidth + 2), y=(display.contentHeight - playerY) } )
-        transition.to( card5, { time=200, delay=200, alpha=1.0 } )
+		card4    = display.newImage(GetCardImage(t[5]))
+        card4.x  = deck.x
+		card4.y  = deck.y
+  	    card4.xScale   = .8
+	    card4.yScale   = .8
+   	   transition.to( card4, { time=250, alpha=0, x=(card2.x + card4.contentWidth + 2), y=(display.contentHeight - playerY) } )
+        transition.to( card4, { time=200, delay=200, alpha=1.0 } )
         score = score + GetCardValue(t[5])
-        score = GetCardValue(t[1]) + GetCardValue(t[2]) + GetCardValue(t[3])  + GetCardValue(t[4]) + GetCardValue(t[5])
+        score = GetCardValue(t[1]) + GetCardValue(t[2]) + GetCardValue(t[4]) + GetCardValue(t[5])
 		DisplayScore(score)
 	    Freeze()
  	    cardCount = cardCount + 1
@@ -263,7 +278,7 @@ function Hit()
 		return cardCount
     end 
 
-	
+
 end
 
 function Freeze()
@@ -293,32 +308,30 @@ function Freeze()
     DisplayDealerScore(dealerScore)
   
     for i = 1, 2 do
-
-        if (dealerScore < score) and (score <= 21) then
-
-			  if (dealerCount == 2) and (dealerScore <= 17)  then
-
+        if dealerScore < score and score <= 33 then
+			  if (dealerCount == 2) and (dealerScore <= 15)  then
 				 -- Hit Dealer
-				 dealerCard4    = display.newImage(GetCardImage(t[10]))
-				 dealerCard4.x  = deck.x
-				 dealerCard4.y  = deck.y
- 				 dealerCard4.xScale = .8
-				 dealerCard4.yScale = .8
-				 transition.to( dealerCard4, { time=250, alpha=0, x=(dealerCard1.x - dealerCard4.contentWidth - 2), y=(display.contentHeight -  dealerY) } )
-				 transition.to( dealerCard4, { time=200, delay=200, alpha=1.0 } )
+				 dealerCard3    = display.newImage(GetCardImage(t[10]))
+				 dealerCard3.x  = deck.x
+				 dealerCard3.y  = deck.y
+ 				 dealerCard3.xScale = .8
+				 dealerCard3.yScale = .8
+				 transition.to( dealerCard3, { time=250, alpha=0, x=(dealerCard1.x - dealerCard3.contentWidth - 2), y=(display.contentHeight -  dealerY) } )
+				 transition.to( dealerCard3, { time=200, delay=200, alpha=1.0 } )
 				 dealerScore = GetCardValue(t[7]) + GetCardValue(t[8]) + GetCardValue(t[10])
 				 DisplayDealerScore(dealerScore)
 				 dealerCount = dealerCount + 1
-			  elseif dealerCount == 4 then
+			  elseif (dealerCount == 3) and (dealerScore <= 15) then
+
 				  -- Hit Dealer
-				 dealerCard5    = display.newImage(GetCardImage(t[11]))
-				 dealerCard5.x  = deck.x
-				 dealerCard5.y  = deck.y
-				 dealerCard5.xScale = .8
-				 dealerCard5.yScale = .8
-				 transition.to( dealerCard5, { time=250, alpha=0, x=(dealerCard3.x + dealerCard4.contentWidth + 2), y=(display.contentHeight -  dealerY) } )
-				 transition.to( dealerCard5, { time=200, delay=200, alpha=1.0 } )
-				 dealerScore = GetCardValue(t[7]) + GetCardValue(t[8]) + GetCardValue(t[9])  + GetCardValue(t[10]) + GetCardValue(t[11]) 
+				 dealerCard4    = display.newImage(GetCardImage(t[11]))
+				 dealerCard4.x  = deck.x
+				 dealerCard4.y  = deck.y
+				 dealerCard4.xScale = .8
+				 dealerCard4.yScale = .8
+				 transition.to( dealerCard4, { time=250, alpha=0, x=(dealerCard2.x + dealerCard3.contentWidth + 2), y=(display.contentHeight -  dealerY) } )
+				 transition.to( dealerCard4, { time=200, delay=200, alpha=1.0 } )
+				dealerScore = GetCardValue(t[7]) + GetCardValue(t[8]) + GetCardValue(t[10]) + GetCardValue(t[11]) 
 				 DisplayDealerScore(dealerScore)
 				 dealerCount = dealerCount + 1
 			  end
