@@ -238,7 +238,7 @@ function Hit()
 		hitCount = hitCount + 1
    	    transition.to( card4, { time=250, alpha=0, x=(card1.x - card4.contentWidth - 2), y=(display.contentHeight -  playerY) } )
         transition.to( card4, { time=200, delay=200, alpha=1.0 } )
-        score = GetCardValue(t[1]) + GetCardValue(t[2]) + GetCardValue(t[3])  + GetCardValue(t[4])
+        score = GetCardValue(t[1]) + GetCardValue(t[2]) + GetCardValue(t[4])
   	    DisplayScore(score)
   	    if (score >= 21) then
 	       Freeze()
@@ -293,16 +293,11 @@ function Freeze()
     DisplayDealerScore(dealerScore)
   
     for i = 1, 2 do
-<<<<<<< HEAD
-        if dealerScore < score and score <= 21 then
-<<<<<< HEAD
-			  if (dealerCount == 2) and dealerScore <= 17 then
-=======
-=======
+
         if (dealerScore < score) and (score <= 21) then
->>>>>>> 648400144a072e3185ac93d91cdf22e8ca0f01bc
+
 			  if (dealerCount == 2) and (dealerScore <= 17)  then
->>>>>>> 4d42f29ef7378ecd3018a405f11a795cfae6b36e
+
 				 -- Hit Dealer
 				 dealerCard4    = display.newImage(GetCardImage(t[10]))
 				 dealerCard4.x  = deck.x
@@ -311,7 +306,7 @@ function Freeze()
 				 dealerCard4.yScale = .8
 				 transition.to( dealerCard4, { time=250, alpha=0, x=(dealerCard1.x - dealerCard4.contentWidth - 2), y=(display.contentHeight -  dealerY) } )
 				 transition.to( dealerCard4, { time=200, delay=200, alpha=1.0 } )
-				 dealerScore = GetCardValue(t[7]) + GetCardValue(t[8]) + GetCardValue(t[9])  + GetCardValue(t[10])
+				 dealerScore = GetCardValue(t[7]) + GetCardValue(t[8]) + GetCardValue(t[10])
 				 DisplayDealerScore(dealerScore)
 				 dealerCount = dealerCount + 1
 			  elseif dealerCount == 4 then
@@ -389,10 +384,9 @@ function Freeze()
                                     { "Restart" }, onComplete )   
 	end 
 
-   freezing = false
-	
-	
-end 
+   freezing = false	
+
+ end 
 
 function DisplayRules()
 
@@ -681,6 +675,9 @@ function GetCardValue(card)
 		cardValue = 1
 	elseif card == 39 then 
 		cardValue = 1
+
+		--Faces
+
 	elseif card == 1  then 
 		cardValue = 10
 	elseif card == 14 then 
@@ -1038,12 +1035,8 @@ function CheckBank()
   if bank < bet then
      bet = 5
   end 
-
 end
 
 LoadBackground()
 
 LoadIntro()
-
-
-
